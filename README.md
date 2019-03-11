@@ -2,10 +2,10 @@
 
 ![alt text](https://github.com/daniellebutters37/butters_danielle_garcia_patricia_AVApp/images/flashback-logo.png)
 
-**Motivation**
+**Motivation**<br />
 This project is create an video application that is similar to Netflix. Its purpose is to utilize queries to pull information from a database by using vue.js components. It allows for a user API that allows for selecting, filtering and rating video content. Allowing users to register and login to a tailored profile based of video ratings corresponding with age.
 
-**Design**
+**Design**<br />
 Illustrator/Photoshop
 
 **Build**
@@ -30,7 +30,7 @@ Adding Dependencies:
 * Gulp
 * Npm
 
-**Code Example**
+**Code Example**<br />
 Vue example to filter video search:
 ```js
     data(){
@@ -66,5 +66,5 @@ Vue example to filter video search:
 * [Danielle Butters](https://daniellebutters.ca) - Developer
 * [Patricia Garcia](https://garcia-patricia.com) - Designer
 
-**License**
+**License**<br />
 MIT
