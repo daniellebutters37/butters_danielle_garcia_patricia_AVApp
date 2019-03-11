@@ -38,4 +38,24 @@ export default {
         </div>
 
     </header>`,
+
+    data(){
+        return {
+            search_text: '',
+            menuOpen: false,
+        }
+    },
+    methods: {
+        filter_genre : function(gen){
+            this.$root.$emit('change-filter', gen);
+        },
+        filter_type : function(gen){
+            this.$root.$emit('change-type', gen);
+        },
+    },
+    watch: {
+        search_text(){
+            this.$root.$emit('search-movie', this.search_text);
+        }
+    }
 }

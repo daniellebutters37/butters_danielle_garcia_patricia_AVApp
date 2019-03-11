@@ -18,4 +18,83 @@ export default {
         <Footer></Footer>
     </div>`,
 
+    data() {
+        return {
+            allVideoData: [],
+            typedVideoData: [],
+            videoData: [],
+            lightBoxStatus: false,
+            lightBoxDate: {}
+        }
+    },
+    methods: {
+        fetchMovieData: function(){
+            //ternary statement
+            let url = `./includes/index.php`;
+
+            fetch(url)
+            .then(res => res.json())
+            .then(data => {
+                this.videoData = 
+                this.typedVideoData = 
+                this.allVideoData = data;
+                if(data.error != null) {
+                    this.$root.$emit('authenticate', { status: false, user: {} });
+                    this.$router.push("/login");
+                } else {
+                    let url = `./includes/login_call.php`;
+                    let user = new FormData();
+                    user.append('check_login', true);
+                    fetch(url, {
+                        method: 'POST',
+                        body: user
+                    })
+                    .then(res => res.json())
+                    .then(data => {
+                        if(data.success != null){
+                            this.$root.$emit('authenticate', { status: true, user: data.user});
+                        } else {
+                            this.$root.$emit('authenticate', { status: false, user: {} });
+                        }
+                    })
+                }
+            })
+            .catch(function(error){
+                // console.log(error);
+            });
+        },
+        openBox: function(video){
+            this.lightBoxStatus = true;
+            this.lightBoxDate = video;
+        },
+    },
+    mounted(){
+        this.fetchMovieData();
+    },
+    created(){
+        this.$root.$on('search-movie', (text) => {
+            this.videoData = this.typedVideoData.slice(0).filter(({video_title}) => video_title.toLowerCase().includes(text.toLowerCase()));
+        });
+        this.$root.$on('change-filter', (genre) => {
+            if(genre == 'All'){
+                this.videoData = this.typedVideoData.slice(0);
+            } else {
+                this.videoData = this.typedVideoData.slice(0).filter(({video_genre}) => video_genre.includes(genre));
+            }
+        });
+        this.$root.$on('change-type', (type) => {
+            if(type == 'All'){
+                this.typedVideoData = this.allVideoData.slice(0);
+            } else {
+                this.typedVideoData = this.allVideoData.slice(0).filter(({video_type}) => video_type.includes(type));
+            }
+        });
+    },
+    watch: {
+        typedVideoData() {
+            this.videoData = this.typedVideoData.slice(0);
+        }
+    },
+    components: {Header : HeaderC, Footer : FooterC, lightBox : LightBoxC}
+
 }
