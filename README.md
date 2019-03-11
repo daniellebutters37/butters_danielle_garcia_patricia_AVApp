@@ -1,7 +1,9 @@
 # Roku Flashback Video Application
 
+![alt text](https://github.com/daniellebutters37/butters_danielle_garcia_patricia_AVApp/images/flashback-logo.png)
+
 **Motivation**
-This project is create an audio/video application that is similar to Netflix. Its purpose is to utilize queries to pull information from a database. A user API that allows users to comment, select, rate and share will be implemented. 
+This project is create an video application that is similar to Netflix. Its purpose is to utilize queries to pull information from a database by using vue.js components. It allows for a user API that allows for selecting, filtering and rating video content. Allowing users to register and login to a tailored profile based of video ratings corresponding with age.
 
 **Design**
 Illustrator/Photoshop
@@ -11,16 +13,49 @@ Illustrator/Photoshop
 * [Sass](https://sass-lang.com) - CSS complier
 * AJAX - Front-end technology for handeling data requests
 
-**Code Example**
+**Getting Started**
+Adding Dependencies:
+```
+   $ Npm init
 
+   $ Npm i -D gulp
+
+   $ npm i -D browser-sync
+
+   $ npm install gulp-cli -g
+```
 **Installation**
 * Node.js
 * SASS
 * Gulp
 * Npm
 
+**Code Example**
+Vue example to filter video search:
+```js
+    data(){
+        return {
+            search_text: '',
+            menuOpen: false,
+        }
+    },
+    methods: {
+        filter_genre : function(gen){
+            this.$root.$emit('change-filter', gen);
+        },
+        filter_type : function(gen){
+            this.$root.$emit('change-type', gen);
+        },
+    },
+    watch: {
+        search_text(){
+            this.$root.$emit('search-movie', this.search_text);
+        }
+    }
+```
+
 **API Reference** 
-fonts.googleapis.com 
+* fonts.googleapis.com 
 
 **Tests**
 * W3C Validator - Valid and semantic HTML tagging
@@ -28,8 +63,8 @@ fonts.googleapis.com
 * SASS validator - Insure all classes are enclosed and valid
 
 **Credits**
-* Danielle Butters - Developer
-* Patricia Garcia - Designer
+* [Danielle Butters](https://daniellebutters.ca) - Developer
+* [Patricia Garcia](https://garcia-patricia.com) - Designer
 
 **License**
 MIT
