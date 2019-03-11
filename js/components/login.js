@@ -28,4 +28,43 @@ export default {
         </div>
         <Footer></Footer>
     </div>`,
+    
+    data() {
+        return {
+            errorMessage : '',
+            username: '',
+            password: '',
+        }
+    },
+    methods: {
+        loginUser: function(){
+            //ternary statement
+            let url = `./includes/login_call.php`;
+            let user = new FormData();
+            user.append('username', this.username);
+            user.append('password', this.password);
+
+            fetch(url, {
+                method: 'POST',
+                body: user
+            })
+            .then(res => res.json())
+            .then(data => {
+                if(data.success != null) {
+                    this.$root.$emit('authenticate', { status: true, user: data.user });
+                } else {
+                    this.errorMessage = data.message;
+                }
+            })
+            .catch(function(error){
+                // console.log(error);
+            });
+        }
+    },
+    created() {
+        if(this.$root.authenticated){
+            this.$router.push("/");
+        }
+    },
+    components: { Footer : FooterC }
 }

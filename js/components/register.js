@@ -43,4 +43,54 @@ export default {
         </div>
         <Footer></Footer>
     </div>`,
+
+    data() {
+        return {
+            errorMessage : '',
+            username: '',
+            email: '',
+            fname: '',
+            userAccess: '',
+            password: '',
+        }
+    },
+    methods: {
+        registerUser: function(){
+            //ternary statement
+            let url = `./includes/register.php`;
+            let user = new FormData();
+            user.append('username', this.username);
+            user.append('password', this.password);
+            user.append('fname', this.fname);
+            user.append('user_access', this.userAccess);
+            user.append('email', this.email);
+
+            fetch(url, {
+                method: 'POST',
+                body: user
+            })
+            .then(res => res.json())
+            .then(data => {
+                if(data.success != null) {
+                    this.username = '';
+                    this.email = '';
+                    this.fname = '';
+                    this.userAccess = '';
+                    this.password = '';
+                    this.errorMessage = data.message;
+                } else {
+                    this.errorMessage = data.message;
+                }
+            })
+            .catch(function(error){
+                // console.log(error);
+            });
+        }
+    },
+    created() {
+        if(this.$root.authenticated){
+            this.$router.push("/");
+        }
+    },
+    components: { Footer : FooterC }
 }
