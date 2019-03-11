@@ -1,0 +1,25 @@
+{
+  "name": "butters_danielle_garcia_patricia_avapp",
+  "version": "1.0.0",
+  "description": "Roku Flashback Video Appilcation",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/daniellebutters37/butters_danielle_garcia_patricia_AVApp.git"
+  },
+  "keywords": [
+    "Video"
+  ],
+  "author": "Danielle Butters Patricia Garcia",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/daniellebutters37/butters_danielle_garcia_patricia_AVApp/issues"
+  },
+  "homepage": "https://github.com/daniellebutters37/butters_danielle_garcia_patricia_AVApp#readme",
+  "devDependencies": {
+    "browser-sync": "^2.26.3"
+  }
+}
