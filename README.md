@@ -1,6 +1,6 @@
 # Roku Flashback Video Application
 
-![alt text](https://github.com/daniellebutters37/butters_danielle_garcia_patricia_AVApp/images/flashback-logo.png)
+![alt text](https://github.com/daniellebutters37/butters_danielle_garcia_patricia_AVApp/blob/master/images/flashback-logo.png)
 
 **Motivation**<br />
 This project is create an video application that is similar to Netflix. Its purpose is to utilize queries to pull information from a database by using vue.js components. It allows for a user API that allows for selecting, filtering and rating video content. Allowing users to register and login to a tailored profile based of video ratings corresponding with age.
