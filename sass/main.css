@@ -1,0 +1,38 @@
+html {
+  background-color: #161616;
+}
+
+h2, h3 {
+  font-size: 2em;
+  color: #ffffff;
+  font-family: "Muli", sans-serif;
+}
+
+label {
+  font-family: "Muli", sans-serif;
+}
+
+p {
+  font-family: "Muli", sans-serif;
+  color: #ffffff;
+}
+
+a {
+  text-decoration: none;
+  color: #ffffff;
+  font-family: "Muli", sans-serif;
+}
+
+i {
+  color: #70B980;
+}
+
+li {
+  color: #ffffff;
+  font-family: "Muli", sans-serif;
+}
+
+.hidden {
+  display: none;
+}
+/*# sourceMappingURL=main.css.map */
